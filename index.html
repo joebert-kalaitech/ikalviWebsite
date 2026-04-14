@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iKalvi — Learn. Build. Get Hired.</title>
+<meta name="description" content="iKalvi is a project-based learning academy for students and freshers. Work on real internship projects, build your portfolio, and launch your tech career.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0e1117;
+    --paper: #f5f2eb;
+    --accent: #e8480c;
+    --accent2: #1a6b47;
+    --muted: #6b6860;
+    --card: #ffffff;
+    --border: #e0dbd0;
+    --radius: 16px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* ---- NAV ---- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px;
+    background: rgba(245,242,235,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  .nav-cta {
+    background: var(--ink) !important;
+    color: var(--paper) !important;
+    padding: 10px 22px !important;
+    border-radius: 50px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--accent) !important; color: #fff !important; }
+
+  /* ---- HERO ---- */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 140px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(120px, 22vw, 280px);
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(14,17,23,0.06);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -4px;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 32px;
+    width: fit-content;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(44px, 7vw, 88px);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -2px;
+    max-width: 820px;
+    position: relative;
+    animation: fadeUp 0.6s ease 0.1s both;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+    position: relative;
+  }
+
+  .hero h1 em::after {
+    content: '';
+    position: absolute;
+    bottom: 4px; left: 0; right: 0;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 2px;
+    opacity: 0.3;
+  }
+
+  .hero-sub {
+    font-size: 19px;
+    color: var(--muted);
+    max-width: 520px;
+    margin-top: 24px;
+    font-weight: 300;
+    line-height: 1.6;
+    animation: fadeUp 0.6s ease 0.2s both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: 44px;
+    animation: fadeUp 0.6s ease 0.3s both;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(232,72,12,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,72,12,0.4); }
+
+  .btn-ghost {
+    color: var(--ink);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .btn-ghost:hover { opacity: 1; }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 72px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    animation: fadeUp 0.6s ease 0.4s both;
+  }
+
+  .stat-item {}
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--ink);
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .stat-num span { color: var(--accent); }
+  .stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---- MARQUEE ---- */
+  .marquee-strip {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-inner {
+    display: inline-flex;
+    gap: 0;
+    animation: marquee 24s linear infinite;
+  }
+
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 32px;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .marquee-dot {
+    width: 5px; height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ---- SECTIONS ---- */
+  section { padding: 100px 48px; }
+
+  .section-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    max-width: 680px;
+    margin-bottom: 16px;
+  }
+
+  .section-sub {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 56px;
+    font-weight: 300;
+  }
+
+  /* ---- HOW IT WORKS ---- */
+  #how { background: var(--ink); color: var(--paper); }
+  #how .section-tag { color: #f5a07a; }
+  #how .section-title { color: var(--paper); }
+  #how .section-sub { color: rgba(245,242,235,0.55); }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 16px;
+  }
+
+  .step-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 36px 28px;
+    border-radius: var(--radius);
+    position: relative;
+    transition: background 0.3s;
+  }
+  .step-card:hover { background: rgba(255,255,255,0.08); }
+
+  .step-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 64px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.08);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .step-icon {
+    width: 44px; height: 44px;
+    background: var(--accent);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  .step-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--paper);
+    margin-bottom: 10px;
+  }
+
+  .step-desc {
+    font-size: 14px;
+    color: rgba(245,242,235,0.55);
+    line-height: 1.65;
+  }
+
+  /* ---- PROGRAMS ---- */
+  #programs { background: var(--paper); }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .program-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: pointer;
+  }
+  .program-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,0.1); }
+
+  .program-card.featured {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+
+  .program-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+  }
+
+  .program-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+
+  .program-duration {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+  .program-card.featured .program-duration { color: rgba(245,242,235,0.5); }
+
+  .program-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+
+  .program-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .program-card.featured .program-features li { color: rgba(245,242,235,0.6); }
+
+  .program-features li::before {
+    content: '✓';
+    color: var(--accent2);
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .program-card.featured .program-features li::before { color: #5ec99a; }
+
+  .program-price {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+  }
+
+  .program-price-note {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .program-card.featured .program-price-note { color: rgba(245,242,235,0.5); }
+
+  .btn-enroll {
+    display: block;
+    text-align: center;
+    background: var(--accent);
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .program-card:not(.featured) .btn-enroll { background: var(--ink); }
+  .btn-enroll:hover { opacity: 0.85; transform: scale(0.99); }
+
+  /* ---- WHY ---- */
+  #why { background: #f0ede4; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .why-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .why-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .why-icon {
+    width: 48px; height: 48px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .why-text h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .why-text p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  .why-visual {
+    background: var(--ink);
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .why-visual-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(232,72,12,0.2) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(26,107,71,0.15) 0%, transparent 50%);
+  }
+
+  .why-quote {
+    position: relative;
+    font-family: 'Syne', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--paper);
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+  }
+
+  .why-quote-mark {
+    font-size: 80px;
+    color: var(--accent);
+    line-height: 0.8;
+    display: block;
+    margin-bottom: 16px;
+    opacity: 0.6;
+    font-family: Georgia, serif;
+  }
+
+  .why-attr {
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgba(245,242,235,0.45);
+    position: relative;
+  }
+
+  /* ---- TESTIMONIALS ---- */
+  #testimonials { background: var(--paper); }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .testi-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 30px;
+    transition: transform 0.2s;
+  }
+  .testi-card:hover { transform: translateY(-4px); }
+
+  .testi-stars { color: var(--accent); font-size: 14px; margin-bottom: 16px; letter-spacing: 2px; }
+
+  .testi-text {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.65;
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+
+  .testi-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--paper);
+    flex-shrink: 0;
+  }
+
+  .testi-name { font-size: 14px; font-weight: 600; }
+  .testi-role { font-size: 12px; color: var(--muted); }
+
+  /* ---- FAQ ---- */
+  #faq { background: var(--ink); color: var(--paper); }
+  #faq .section-tag { color: #f5a07a; }
+  #faq .section-title { color: var(--paper); }
+
+  .faq-list { max-width: 700px; }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 24px 0;
+    cursor: pointer;
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--paper);
+    transition: color 0.2s;
+  }
+  .faq-item:hover .faq-question { color: #f5a07a; }
+
+  .faq-icon {
+    width: 28px; height: 28px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    transition: transform 0.3s, background 0.2s;
+    color: var(--paper);
+  }
+  .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--accent); border-color: var(--accent); }
+
+  .faq-answer {
+    font-size: 15px;
+    color: rgba(245,242,235,0.55);
+    line-height: 1.7;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s;
+    font-weight: 300;
+  }
+  .faq-item.open .faq-answer { max-height: 200px; padding-top: 14px; }
+
+  /* ---- CTA FINAL ---- */
+  #cta {
+    background: var(--accent);
+    text-align: center;
+    padding: 100px 48px;
+  }
+
+  #cta .section-title { color: #fff; max-width: 100%; letter-spacing: -2px; font-size: clamp(38px, 6vw, 72px); }
+  #cta .section-sub { color: rgba(255,255,255,0.75); max-width: 100%; margin-bottom: 48px; font-size: 19px; }
+
+  .btn-white {
+    background: #fff;
+    color: var(--accent);
+    padding: 18px 48px;
+    border-radius: 50px;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  }
+  .btn-white:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,0.2); }
+
+  /* ---- FOOTER ---- */
+  footer {
+    background: #080b10;
+    color: rgba(245,242,235,0.45);
+    padding: 40px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--paper);
+  }
+  .footer-logo span { color: var(--accent); }
+
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { color: rgba(245,242,235,0.45); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--paper); }
+
+  .footer-brand {
+    font-size: 12px;
+    color: rgba(245,242,235,0.25);
+  }
+  .footer-brand a { color: rgba(245,242,235,0.4); text-decoration: none; }
+  .footer-brand a:hover { color: var(--paper); }
+
+  /* ---- SCROLL REVEAL ---- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { gap: 20px; }
+    section { padding: 72px 24px; }
+    .hero { padding: 120px 24px 72px; }
+    .hero-stats { gap: 32px; }
+    .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    .programs-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 20px; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 40px; letter-spacing: -1px; }
+    .hero-stats { flex-direction: column; gap: 20px; }
+    #cta { padding: 72px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">i<span>K</span>alvi</a>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    <a href="#programs">Programs</a>
+    <a href="#why">Why iKalvi</a>
+    <a href="#faq">FAQ</a>
+    <a href="#cta" class="nav-cta">Enroll now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text" aria-hidden="true">KALVI</div>
+  <div class="hero-tag">Now enrolling — batch 01</div>
+  <h1>Learn by doing.<br><em>Real projects.</em><br>Real careers.</h1>
+  <p class="hero-sub">iKalvi is a project-based internship academy for students and freshers. No lectures. No theory overload. Build things, get certified, get hired.</p>
+  <div class="hero-actions">
+    <a href="#programs" class="btn-primary">View programs →</a>
+    <a href="#how" class="btn-ghost">How it works ↓</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">4<span>+</span></div>
+      <div class="stat-label">Learning tracks</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">8<span>wk</span></div>
+      <div class="stat-label">Fastest program</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100<span>%</span></div>
+      <div class="stat-label">Project-based</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">₹0</div>
+      <div class="stat-label">Until you enroll</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-inner">
+    <span class="marquee-item"><span class="marquee-dot"></span>Web development</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>App development</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>UI/UX design</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Data analytics</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Project-based learning</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Internship certificate</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Portfolio building</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Career mentorship</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Web development</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>App development</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>UI/UX design</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Data analytics</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Project-based learning</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Internship certificate</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Portfolio building</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Career mentorship</span>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <p class="section-tag reveal">Process</p>
+  <h2 class="section-title reveal">From zero to job-ready in 4 steps</h2>
+  <p class="section-sub reveal">We've replaced classroom theory with a structured internship experience. Every week, you ship.</p>
+  <div class="steps-grid reveal">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-icon">🎯</div>
+      <div class="step-title">Choose your track</div>
+      <div class="step-desc">Pick a program aligned to your interest — web, app, data, or design. Pay once, get full access to your cohort.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-icon">⚙️</div>
+      <div class="step-title">Build real projects</div>
+      <div class="step-desc">Each week you work on a structured project — just like a real internship. You learn by shipping, not by watching.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-icon">🧑‍💻</div>
+      <div class="step-title">Get mentored</div>
+      <div class="step-desc">Code reviews, weekly check-ins, and async support from industry practitioners. No student left behind.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">04</div>
+      <div class="step-icon">🏆</div>
+      <div class="step-title">Graduate with proof</div>
+      <div class="step-desc">Complete the program, earn your iKalvi internship certificate, and launch your portfolio to employers.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <p class="section-tag reveal">Programs</p>
+  <h2 class="section-title reveal">Pick your track</h2>
+  <p class="section-sub reveal">Every program is hands-on, cohort-based, and designed for freshers. No prior experience needed — just curiosity.</p>
+  <div class="programs-grid reveal">
+    <div class="program-card">
+      <div class="program-badge">Web dev</div>
+      <div class="program-name">Frontend Internship</div>
+      <div class="program-duration">8 weeks · Next batch: Feb 2025</div>
+      <ul class="program-features">
+        <li>HTML, CSS, JavaScript fundamentals</li>
+        <li>React basics + real project build</li>
+        <li>Git & GitHub workflow</li>
+        <li>Portfolio-ready output</li>
+        <li>Internship certificate</li>
+      </ul>
+      <div class="program-price">₹4,999</div>
+      <div class="program-price-note">One-time · No EMI required</div>
+      <a href="#cta" class="btn-enroll">Enroll now</a>
+    </div>
+    <div class="program-card featured">
+      <div class="program-badge">Most popular</div>
+      <div class="program-name">Full Stack Internship</div>
+      <div class="program-duration">12 weeks · Next batch: Feb 2025</div>
+      <ul class="program-features">
+        <li>Frontend + Backend development</li>
+        <li>Node.js, databases, REST APIs</li>
+        <li>Deployment on cloud platforms</li>
+        <li>2 full-stack projects in portfolio</li>
+        <li>LinkedIn profile review</li>
+        <li>1:1 career session</li>
+      </ul>
+      <div class="program-price">₹9,999</div>
+      <div class="program-price-note">One-time · EMI available</div>
+      <a href="#cta" class="btn-enroll">Enroll now</a>
+    </div>
+    <div class="program-card">
+      <div class="program-badge">Data track</div>
+      <div class="program-name">Data Analytics Internship</div>
+      <div class="program-duration">10 weeks · Next batch: Mar 2025</div>
+      <ul class="program-features">
+        <li>Python for data analysis</li>
+        <li>SQL, Excel, Power BI</li>
+        <li>Real dataset projects</li>
+        <li>Dashboard creation</li>
+        <li>Internship certificate</li>
+      </ul>
+      <div class="program-price">₹6,999</div>
+      <div class="program-price-note">One-time · No EMI required</div>
+      <a href="#cta" class="btn-enroll">Enroll now</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY IKALVI -->
+<section id="why">
+  <div class="why-grid">
+    <div>
+      <p class="section-tag reveal">Why iKalvi</p>
+      <h2 class="section-title reveal">Not a course. An internship experience.</h2>
+      <div class="why-list reveal">
+        <div class="why-item">
+          <div class="why-icon">🚀</div>
+          <div class="why-text">
+            <h4>Project-first, always</h4>
+            <p>Every module ends with a shipped project. You'll have a portfolio employers can actually see.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">🧠</div>
+          <div class="why-text">
+            <h4>Industry practitioners as mentors</h4>
+            <p>Our mentors are working engineers and designers — not just teachers. You get real-world context.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">📍</div>
+          <div class="why-text">
+            <h4>Built for Indian freshers</h4>
+            <p>Affordable pricing, Tamil-English support, and content tuned to the Indian job market.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">🎓</div>
+          <div class="why-text">
+            <h4>Verifiable internship certificate</h4>
+            <p>Your completion certificate is digitally signed and shareable on LinkedIn instantly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why-visual reveal">
+      <div class="why-visual-bg"></div>
+      <span class="why-quote-mark">"</span>
+      <p class="why-quote">The best way to learn software is to build software. Everything else is preparation.</p>
+      <p class="why-attr">— iKalvi philosophy</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <p class="section-tag reveal">Students</p>
+  <h2 class="section-title reveal">What our first students say</h2>
+  <p class="section-sub reveal">Real feedback from beta cohort students who built their first projects with iKalvi.</p>
+  <div class="testi-grid reveal">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"I tried 3 YouTube courses before iKalvi. The difference is the structure and the fact that someone actually reviews your code. I built a real project in week 2."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AR</div>
+        <div>
+          <div class="testi-name">Arun R.</div>
+          <div class="testi-role">Frontend Intern · CSE final year</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"I was scared I'd fall behind since I'm from a non-CS background. The mentors were very patient and the pace was just right. Got my certificate and updated my resume."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">PK</div>
+        <div>
+          <div class="testi-name">Priya K.</div>
+          <div class="testi-role">Data Analytics track · ECE fresher</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"The full stack program is worth every rupee. I now have two GitHub projects to show in interviews. Already got a callback from a startup. iKalvi actually works."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">SK</div>
+        <div>
+          <div class="testi-name">Siddharth K.</div>
+          <div class="testi-role">Full Stack Internship · 2024 batch</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <p class="section-tag reveal">Questions</p>
+  <h2 class="section-title reveal">Frequently asked</h2>
+  <div class="faq-list reveal">
+    <div class="faq-item">
+      <div class="faq-question">
+        Do I need prior coding experience?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">No. Our programs start from the basics. You need curiosity and consistency — we provide the structure and mentorship.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        Is this a live class or self-paced?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">It's cohort-based with weekly project milestones. You work mostly async but have live check-ins with mentors every week. Best of both worlds.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        What is the internship certificate?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">On completing your program, you receive a digitally signed iKalvi internship certificate. It's verifiable online and formatted to be added directly to your LinkedIn and resume.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        Is there a refund policy?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">We offer a 7-day no-questions-asked refund if you feel the program isn't right for you. After week 1, refunds are not available.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        Who are the mentors?
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-answer">Mentors are working software engineers and designers with 3–10 years of experience at Indian startups and product companies. They volunteer their time because they believe in the mission.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <h2 class="section-title reveal">Start building.<br>Start today.</h2>
+  <p class="section-sub reveal">Seats are limited per cohort. Don't wait for the "right time" — the right time is now.</p>
+  <a href="mailto:hello@ikalvi.in" class="btn-white reveal">Enroll in a program →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">i<span>K</span>alvi</div>
+  <div class="footer-links">
+    <a href="#how">How it works</a>
+    <a href="#programs">Programs</a>
+    <a href="#faq">FAQ</a>
+    <a href="mailto:hello@ikalvi.in">Contact</a>
+  </div>
+  <div class="footer-brand">
+    A product of <a href="https://kalai.tech" target="_blank">Kalai Technology</a> · ikalvi.in
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>
